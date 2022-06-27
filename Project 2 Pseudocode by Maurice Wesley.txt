@@ -1,0 +1,257 @@
+// Airgead Banking Psuedocode
+// CS210: Programming Languages
+// Author: Maurice Wesley
+// May 20th, 2022
+
+START
+CREATE CLASS Header AirgeadBanking;
+    CREATE ACCESS SPECIFIER Private:                                               
+        INIT int    m_Month{};                                  
+        INIT double m_OpeningAmount{};
+        INIT double m_DepositAmount{};
+        INIT double m_Total{};
+        INIT double m_Interest{};
+        INIT double m_ClosingBalance{};
+    CREATE ACCESS SPECIFIER Public:                                                
+        DECLARE vector <AirgeadBanking> noDeposit;
+        DECLARE vector <AirgeadBanking> withDeposit;
+
+    // Class overloaded constructor
+    CREATE AirgeadBanking overloaded constructor
+    }
+    CREATE AirgeadBanking(){} default constructor;
+    // Mutator Member Functions
+    DECLARE void SetMonth();                        
+    DECLARE void SetOpeningAmount();   
+    DECLARE void SetDepositAmount();   
+    DECLARE void SetTotal();                   
+    DECLARE void SetInterest();             
+    DECLARE void SetClosingBalance(); 
+    // Accessor Member Functions
+    DECLARE int GetMonth() const;                            
+    DECLARE double GetOpeningAmount() const;                 
+    DECLARE double GetDepositAmount() const;                 
+    DECLARE double GetTotal() const;                         
+    DECLARE double GetInterest() const;                      
+    DECLARE double GetClosingBalance() const;                
+    // Formatted Output of Member Variables
+    DECLARE void DisplayChart();                             
+ENDHEADER
+CREATE CPP AirgeadBanking;
+    // Default constucotr
+    DEFINE AirgeadBanking::AirgeadBanking() {};       
+    // Mutator member functions
+    DEFINE void AirgeadBanking::SetMonth(){} set instance m_Month;
+    DEFINE void AirgeadBanking::SetOpeningAmount(){}set instance m_OpeningAmount;
+    DEFINE void AirgeadBanking::SetDepositAmount(){} set instance m_DepositAmount;
+    DEFINE void AirgeadBanking::SetTotal(double t_total){} set instance m_Total;
+    DEFINE void AirgeadBanking::SetInterest(double t_interest){} set instance m_Interest;
+    DEFINE void AirgeadBanking::SetClosingBalance(){} set instance m_ClosingBalance;
+    // Accessor member functions
+    DEFINE int AirgeadBanking::GetMonth() const{} return instance m_Month;
+    DEFINE double AirgeadBanking::GetOpeningAmount() const{} return instance m_OpeningAmount;
+    DEFINE double AirgeadBanking::GetDepositAmount() const {} return instance m_DepositAmount;
+    DEFINE double AirgeadBanking::GetTotal() const {} return instance m_Total;
+    DEFINE double AirgeadBanking::GetInterest() const {} return instance m_Interest;
+    DEFINE double AirgeadBanking::GetClosingBalance() const {} return instance m_ClosingBalance;
+    DEINE void AirgeadBanking::DisplayChart() const {};
+ENDCPP
+CREATE CLASS Header Results
+    DECLARE Access Specifier private:
+        INIT double m_YearEndBalance{};
+        INIT double m_YearEndInterest{};
+        INIT int m_Year{};
+    DECLARE Access Specifier public:
+        DECLARE vector <Results> m_EndBalance;
+        DECLARE default constructor Results();
+        DEClARE custom default constructor Results();
+        // Mutator member functions
+        DECLARE void SetYearEndBalance();
+        DECLARE void SetYearEndInterest();
+        DECLARE void SetYear();
+        // Accessor member variables
+        DECLARE double GetYearEndBalance() const;
+        DECLARE double GetYearEndInterest() const;
+        DECLARE int GetYear() const;
+        // Formatter output of member variables values
+        DECLARE void PrintValues() const;      
+ENDHEADER
+CREATE CPP Results
+    DEFINE default constructor Results::Results() {}
+    DEFINE custom constructor Results::Results() {}
+    // Member mutator functions
+    DEFINE void Results::SetYearEndBalance() {} set instance m_YearEndBalance;
+    DEFINE void Results::SetYearEndInterest() {} set instance m_YearEndInterest;
+    DEFINE void Results::SetYear() {} set instance m_Year;
+    // Member accessor functions
+    DEFINE double Results::GetYearEndBalance() const {} return instance m_YearEndBalance;
+    DEFINE double Results::GetYearEndInterest() const {} return instance m_YearEndInterest;
+    DEFINE int Results::GetYear() const {} return instance m_Year;
+    // Formatted output of member variables
+    DEFINE void Results::PrintValues() const {}
+ENDCPP
+CREATE CLASS HEADER RunProgam
+    DECLARE access specifier public:
+	    DECLARE double CheckInvestmentAmount();
+	    DECALRE double CheckMonthlyAmount();
+	    DECLARE double CheckInterestRate();
+	    DECLARE int CheckNumYears();
+	    DECLARE void DisplayMenu();
+	    DECLARE void ChartOfValues(vector<AirgeadBanking>& t_table);
+	    DECLARE void YearEndBalance(vector<AirgeadBanking>& t_DepositTable);
+	    DECLARE void GetUserInput();
+	    DECLARE bool CheckEndProgram();
+ENDHEADER
+CREATE CPP RunProgram
+    DEFINE double CheckInvestmentAmount();
+	DEFINE double CheckMonthlyAmount();
+	DEFINE double CheckInterestRate();
+	DEFINE int CheckNumYears();
+	DEFINE void DisplayMenu();
+	DEFINE void ChartOfValues(vector<AirgeadBanking>& t_table);
+	DEFINE void YearEndBalance(vector<AirgeadBanking>& t_DepositTable);
+	DEFINE void GetUserInput();
+	DEFINE bool CheckEndProgram();
+ENDCPP
+CREATE CPP Main
+    DECLARE object instance RunProgram rP; 
+    WHILE (true) {                         // Loop start
+        rP.DisplayMenu();                  // Function call to display menu
+        rP.GetUserInput();                 // Function to get user input and display chart
+        rP.CheckEndProgram();              // Function call to check end program
+    ENDWHILE
+ENDCPP
+Step 1 - Get user input
+Step 2 - Validate your input
+Step 3 - Display formatted user data input
+Step 4 - Calculate and assign Airgeead banking member variable instances
+Step 5 - Create table with member variable values
+Step 6 - Display formatted chart without Deposit
+Step 7 - Display formatted chart with Deposit
+Step 8 - Additional functionality to display table without deposit
+Step 9 - Additional functionality to display table with deposit
+Step 10 - Continue or end program
+
+Case:
+    INIT double openingAmount{};
+    INIT double depositAmount{};
+    INIT double interest{};
+    INIT double accruedInterest{};
+    INIT doulbe accruedINterest1{};
+    INIT int numYeares{};
+    INIT int months{};
+
+    DECLARE RunProgram rP;
+
+    WHILE(TRUE){
+        CALL rP.DisplayMenu();
+        Step 1 - Get user input
+            Step 2 - Validate user input
+            CALL rP.GetUserInput();
+                openingAmount = CheckInvestmentAmount();
+                depositAmount = CheckMonthlyAmount();
+                interest = CheckInterestRate();
+                numYears = CheckNumYears();
+                months = numYears * 12;
+        Step 3 - Display formatted user data input
+            CALL rP.DisplayMenu() + user input
+        Step 4 - Calculate and assign AirgeadBanking member variable instances
+            DECLARE AirgeadBanking ab;   // for withDeposit vector values
+            DECLARE AirgeadBanking ab1;  // for withoutDeposit vector values
+            
+            ab.SetMonth(1);
+            ab.SetOpeningAmount(openingAmount);
+            ab.SetDepositAmount(depositAmount);
+            ab.SetTotal(openingAmount + depositAmount);
+            
+            // Assign values to mutattors for without deposit vector
+            ab1.SetMonth(1);
+            ab1.SetOpeningAmount(openingAmount);
+            ab1.SetDepositAmount(0);
+            ab1.SetTotal(openingAmount + ab1.GetDepositAmount());
+            
+            // Convert user input interest
+            interest = interest / 100;
+            
+            // Calculate and Assign interest to variable for with deposit vector
+            accruedInterest = ((ab.GetTotal()) * (interest / 12));
+            
+            // Calculate and Assign interest to variable for without deposit vector
+            accruedInterest1 = ((ab1.GetTotal()) * (interest / 12));
+    
+            ab.SetInterest(accruedInterest);
+            ab.SetClosingBalance(accruedInterest + ab.GetTotal());
+
+            ab1.SetInterest(accruedInterest1);
+            ab1.SetClosingBalance(accruedInterest1 + ab1.GetTotal());
+
+            // Add custom object to vectors
+            ADD object ab to withDeposit vector
+            ADD object ab1 to noDeposit vector
+
+        Step 5 - Create table with member variable values
+            FOR (i equals 2; i less than or equal to months; increment i) {
+                ab.SetMonth(i);
+                ab.SetOpeningAmount(ab.GetClosingBalance());
+                ab.SetDepositAmount(depositAmount);
+                ab.SetTotal(ab.GetOpeningAmount() + ab.GetDepositAmount());
+                ab.SetInterest((ab.GetTotal()) * (interest / 12));
+                ab.SetClosingBalance(ab.GetInterest() + ab.GetTotal());
+
+                // Create custom object using overloaded constructor
+                AirgeadBanking wd(ab.GetMonth(), ab.GetOpeningAmount(), ab.GetDepositAmount(), ab.GetTotal(),
+                    ab.GetInterest(), ab.GetClosingBalance());
+
+                // Add custom object to with deposit vector
+                ADD object wd to withDeposit vector;
+            ENDFOR
+            // Loop to add elements to without deposit vector
+            FOR (i equals 2; i less than or equal to months; increment i) {
+                ab1.SetMonth(i);
+                ab1.SetOpeningAmount(ab1.GetClosingBalance());
+                ab1.SetDepositAmount(0);
+                ab1.SetTotal(ab1.GetOpeningAmount() + ab1.GetDepositAmount());
+                ab1.SetInterest((ab1.GetTotal()) * (interest / 12));
+                ab1.SetClosingBalance(ab1.GetInterest() + ab1.GetTotal());
+
+                // Create custom object instance using overloaded constructor
+                AirgeadBanking nd(ab1.GetMonth(), ab1.GetOpeningAmount(), ab1.GetDepositAmount(), ab1.GetTotal(),
+                    ab1.GetInterest(), ab1.GetClosingBalance());
+
+                // Add custom object to without deposit vector
+                ADD object nd to noDeposit vector;
+            ENDFOR
+
+        Step 6 - Display formatted chart without Deposit
+            DISPLAY "Balance and Interest Without Additional Monthly Deposits";
+            // Function call to retrieve formatted output of without deposit vector elements
+            CALL YearEndBalance(noDeposit vector);
+
+        Step 7 - Display formatted chart without Deposit
+            DISPLAY "Balance and Interest With Additional Monthly Deposits";
+            // Function call to retrieve formatted output of with deposit vector elements
+            CALL YearEndBalance(withDeposit vector);
+
+        Step 8 - Additional functionality to display table without deposit
+        DISPLAY "Chart without Deposits";
+        DISPLAY "Month  Opening Amount Deposit Amount Total Interest Closing Balance";
+        // Function call to retrieve chart of without deposit vector elements
+        CALL ChartOfValues(noDeposit vector);
+
+        Step 9 - Additional functionality to display table with deposit
+        DISPLAY "Chart with Deposits";
+        DISPLAY "Month Opening Amount Deposit Amount Total Interest Closing Balance";
+        // Function call to retrieve chart of with deposit vector elements
+        CALL ChartOfValues(withDeposit vector);
+
+        Step 10 - Continue or end program
+        CALL rP.CheckEndProgram();
+            VALIDATE user input;
+            IF (userInput == 'Y' or userInput == 'y') THEN
+                CONTINUE program: return TRUE;
+            ENDIF
+            IF (userInput == 'N' or userInput == 'n') THEN
+                END program: return FALSE;
+            ENDIF
+    ENDWHILE
+ENDCASE
